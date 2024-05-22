@@ -1,7 +1,7 @@
 import express, { Application, Request, Response } from 'express'
 import cors from 'cors'
-import productRoutes from './Routes/ProductRoutes';
-import orderRoutes from './Routes/OrderRoutes';
+import productRoutes from './app/Routes/ProductRoutes';
+import orderRoutes from './app/Routes/OrderRoutes';
 const app: Application = express()
 const port = 3000
 
