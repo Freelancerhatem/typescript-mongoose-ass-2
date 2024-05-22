@@ -1,4 +1,4 @@
-import express, { Application, Request, Response } from 'express'
+import express, { Application, Request, Response, NextFunction } from 'express'
 import cors from 'cors'
 import productRoutes from './app/Routes/ProductRoutes';
 import orderRoutes from './app/Routes/OrderRoutes';
@@ -13,6 +13,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 app.use('/api/products', productRoutes)
 app.use('/api/orders', orderRoutes)
-
-
+app.use((req: Request, res: Response, next: NextFunction) => {
+  res.status(404).send(`Your route "${req.path}" is not found.`);
+});
 export default app
