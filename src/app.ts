@@ -1,6 +1,7 @@
 import express, { Application, Request, Response } from 'express'
 import cors from 'cors'
-import productRoutes from './Routes/ProductRoutes'
+import productRoutes from './Routes/ProductRoutes';
+import orderRoutes from './Routes/OrderRoutes';
 const app: Application = express()
 const port = 3000
 
@@ -11,6 +12,7 @@ app.get('/', (req: Request, res: Response) => {
   res.send('Hello World!');
 });
 app.use('/api/products', productRoutes)
+app.use('/api/orders', orderRoutes)
 
 
 export default app
