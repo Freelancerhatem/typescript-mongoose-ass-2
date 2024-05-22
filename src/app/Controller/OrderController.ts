@@ -10,7 +10,7 @@ export const createOrder = async (req: Request, res: Response) => {
         return res.status(400).json({ success: false, message: error.details[0].message });
     }
     try {
-        const product = await Product.findById(req.body.productID);
+        const product = await Product.findById(req.body.productId);
         if (!product) {
 
             return res.status(404).json({ success: false, message: 'Product not found' });

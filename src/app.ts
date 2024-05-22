@@ -9,7 +9,7 @@ const port = 3000
 app.use(express.json())
 app.use(cors())
 app.get('/', (req: Request, res: Response) => {
-  res.send('Hello World!');
+  res.send('Server Running Successfully!');
 });
 app.use('/api/products', productRoutes)
 app.use('/api/orders', orderRoutes)

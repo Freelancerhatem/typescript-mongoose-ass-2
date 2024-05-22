@@ -3,7 +3,7 @@ import { OrderType } from '../Interface/Order.interface';
 
 const OrderSchema = new Schema({
     email: { type: String, required: true },
-    productID: { type: mongoose.Types.ObjectId, required: true, ref: 'Product' },
+    productId: { type: mongoose.Types.ObjectId, required: true, ref: 'Product' },
     price: { type: Number, required: true },
     quantity: { type: Number, required: true }
 });

@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 export type OrderType = {
     email: String,
-    ProductID: mongoose.Types.ObjectId,
+    productId: mongoose.Types.ObjectId,
     price: number,
     quantity: number
 }
