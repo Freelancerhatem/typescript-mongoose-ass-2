@@ -23,3 +23,27 @@ export const retrieveProduct = async (req: Request, res: Response) => {
     }
 
 }
+
+export const retrieveProductById = async (req: Request, res: Response) => {
+    const product = await Product.findById(req.params.productId);
+    if (!product) {
+
+        return res.status(404).json({ success: false, message: 'Product not found' });
+    }
+    else {
+
+        res.status(201).json({ success: true, message: 'Product found!', data: product });
+    }
+}
+
+export const updateProductById = async (req: Request, res: Response) => {
+    const product = await Product.findByIdAndUpdate(req.params.productId, req.body, { new: true });
+    if (!product) {
+
+        return res.status(404).json({ success: false, message: 'Product not found' });
+    }
+    else {
+
+        res.status(201).json({ success: true, message: 'Product updated!', data: product });
+    }
+}
