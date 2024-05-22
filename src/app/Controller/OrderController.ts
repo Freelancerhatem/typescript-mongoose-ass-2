@@ -41,17 +41,4 @@ export const getAllOrders = async (req: Request, res: Response) => {
         res.status(500).json({ success: false, message: 'Server Error', error: error.message });
     }
 };
-export const getOrdersByEmail = async (req: Request, res: Response) => {
-    const email = req.query.email;
-    if (!email) {
 
-        return res.status(400).json({ success: false, message: 'Email is required' });
-    }
-
-    try {
-        const orders = await Order.find({ email: email.toString() });
-        res.status(201).json({ success: true, message: 'Orders fetched successfully for user email!', data: orders });
-    } catch (error: any) {
-        res.status(500).json({ success: false, message: 'Server Error', error: error.message });
-    }
-};
